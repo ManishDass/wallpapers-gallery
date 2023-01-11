@@ -17,6 +17,7 @@ function App() {
   },[items])
 
   function handleKeyDown(e) {
+    console.log(e.keyCode)
     if (e.keyCode === 13) {
       setItems(x)
     }
