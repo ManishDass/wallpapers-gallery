@@ -12,15 +12,16 @@ function App() {
   const [items, setItems] = useState('random')
   const [x,setX] = useState('')
 
-  useEffect(()=>{
-    console.log(items)
-  },[items])
-
   function handleKeyDown(e) {
-    console.log(e.keyCode)
+    //console.log(e.keyCode)
     if (e.keyCode === 13) {
       setItems(x)
     }
+  }
+
+  function searchResult(e)
+  {
+    setItems(x)
   }
 
   return (
@@ -37,7 +38,7 @@ function App() {
               <img className='banner' alt='banner' src='//unsplash.it/3840/2160' />
               <section className='heroContent'>
                 <h1>The best free stock photos, royalty free images & videos shared by creators.</h1>
-                <input onChange={(e)=>setX(e.target.value)} onKeyDown={handleKeyDown} className="search" type="text" placeholder="Search for free photos" />
+                <input onChange={(e)=>setX(e.target.value)} onBlur={searchResult}  onKeyDown={handleKeyDown} className="search" type="text" placeholder="Search for free photos" />
                 {/* <button onClick={(e)=>} >Submit</button> */}
               </section>
             </div>

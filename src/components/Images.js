@@ -9,13 +9,11 @@ const Images = ({topic}) => {
     function downloadHandler(e) {
       let image_name = e.target.alt
       let img_url = e.target.src.split('?')[0]
-      console.log(img_url)
       saveAs(img_url, `${image_name}.jpeg`)
     }  
 
     const [images, setImages] = useState([{}])
 
-    //https://api.pexels.com/v1/search
     //https://api.pexels.com/v1/curated?per_page=30
 
     useEffect(()=>{
@@ -30,7 +28,7 @@ const Images = ({topic}) => {
       })
     .then((responce) => { 
         setImages(JSON.parse(responce.data))
-        console.log(JSON.parse(responce.data))
+        // console.log(JSON.parse(responce.data))
     })
     .catch(e => console.log(e))
     },[topic])
