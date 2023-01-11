@@ -5,9 +5,22 @@ import Navbar from './components/Navbar';
 import Images from './components/Images';
 import { NavLink } from 'react-router-dom';
 import './App.css'
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [items, setItems] = useState('random')
+  const [x,setX] = useState('')
+
+  useEffect(()=>{
+    console.log(items)
+  },[items])
+
+  function handleKeyDown(e) {
+    if (e.keyCode === 13) {
+      setItems(x)
+    }
+  }
 
   return (
     <div className="App">
@@ -16,14 +29,15 @@ function App() {
 
         <Route path='/' element={
           <>
-            <Navbar />
+            <Navbar />  
 
             {/* Hero Section Start */}
             <div className='hero--wrapper'>
               <img className='banner' alt='banner' src='//unsplash.it/3840/2160' />
               <section className='heroContent'>
                 <h1>The best free stock photos, royalty free images & videos shared by creators.</h1>
-                <input className="search" type="text" placeholder="Search for free photos" />
+                <input onChange={(e)=>setX(e.target.value)} onKeyDown={handleKeyDown} className="search" type="text" placeholder="Search for free photos" />
+                {/* <button onClick={(e)=>} >Submit</button> */}
               </section>
             </div>
             {/* Hero Section End */}
@@ -52,7 +66,7 @@ function App() {
 
 
             <main>
-              <Images />
+              <Images topic={items} />
             </main>
 
             <Footer />
