@@ -20,7 +20,7 @@ const Images = ({topic}) => {
     axios({
         method: 'get',
         url: `https://api.pexels.com/v1/search?query=${topic}&page=1&per_page=30`,
-        responseType: 'application/json',
+        responseType: 'stream',
         headers: {
                     Accept: "application/json",
                     Authorization: '563492ad6f91700001000001e435c881bfc5495dab881653b01dd416',     //use the apikey you have generated

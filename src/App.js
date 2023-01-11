@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 
 function App() {
-  const [items, setItems] = useState('random')
+  const [items, setItems] = useState('sea')
   const [x,setX] = useState('')
 
   function handleKeyDown(e) {
@@ -22,6 +22,12 @@ function App() {
   function searchResult(e)
   {
     setItems(x)
+  }
+
+  function trendingItemSelector(e){
+     
+    let result = e.target.textContent.toLowerCase()
+    setItems(result)
   }
 
   return (
@@ -45,16 +51,16 @@ function App() {
             {/* Hero Section End */}
 
             <div className='category'>
-              <NavLink to='/'>Ocean</NavLink>
-              <NavLink to='/a'>Mountain</NavLink>
-              <NavLink to='/b'>Birds</NavLink>
-              <NavLink to='/c'>Animals</NavLink>
-              <NavLink to='/d'>Cars</NavLink>
-              <NavLink to='/e'>Abstract</NavLink>
-              <NavLink to='/f'>Colors</NavLink>
-              <NavLink to='/g'>Space</NavLink>
-              <NavLink to='/i'>Technology</NavLink>
-              <NavLink to='/j'>Sports</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Ocean</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Mountain</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Birds</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Animals</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Cars</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Abstract</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Colors</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Space</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Technology</NavLink>
+              <NavLink to='/' onClick={trendingItemSelector} >Sports</NavLink>
             </div>
 
             <div className='menu--Wrapper'>
