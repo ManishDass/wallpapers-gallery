@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Images from './components/Images';
 import { NavLink } from 'react-router-dom';
 import './App.css'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 function App() {
@@ -28,6 +28,10 @@ function App() {
      
     let result = e.target.textContent.toLowerCase()
     setItems(result)
+  }
+
+  function selectHandler(e) {
+     setItems(e.target.value) 
   }
 
   return (
@@ -63,12 +67,12 @@ function App() {
               <NavLink to='/' onClick={trendingItemSelector} >Sports</NavLink>
             </div>
 
-            <div className='menu--Wrapper'>
+            <div className='menu--Wrapper' onChange={selectHandler} >
               <h3>Free Stock Photos</h3>
-              <select className='filterOne'>
-                <option>Trending</option>
-                <option>New</option>
-                <option>Following</option>
+              <select className='filterOne' name='filterOne' >
+                <option value='trending' name="trending" >Trending</option>
+                <option value='new' name="new">New</option>
+                <option value='following' name="following">Following</option>
               </select>
             </div>
 
