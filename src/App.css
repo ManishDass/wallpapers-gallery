@@ -164,7 +164,7 @@ body {
   main {
     margin: 2rem 1rem;
     display: grid;
-    grid-template-columns: repeat(3, minmax(361px, 1fr));
+    grid-template-columns: repeat(3, minmax(30vw, 1fr));
     grid-gap: 1.5rem;
     grid-auto-flow: dense;  
   }
